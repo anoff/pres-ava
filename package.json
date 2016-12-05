@@ -4,7 +4,8 @@
   "description": "presentation of first experiences with yarn",
   "main": "",
   "scripts": {
-    "start": "npm install && ./node_modules/reveal-md/bin/cli.js PRESENTATION.md"
+    "start": "npm install && ./node_modules/reveal-md/bin/cli.js PRESENTATION.md",
+    "print": "reveal-md PRESENTATION.md --print slides.pdf"
   },
   "repository": {
     "url": "git@github.com:anoff/pres-yarn.git",

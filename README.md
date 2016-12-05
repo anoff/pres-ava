@@ -12,6 +12,8 @@ This repository is a presentation using [reveal-md](https://github.com/webpro/re
 If you want to run it just clone the repo and `npm start` to install dependencies
 and start the server.
 
+_Note: Printin only works with this hotfix: https://github.com/webpro/reveal-md/issues/42#issuecomment-223280295_
+
 ## Author
 Andreas Offenhäuser
 
