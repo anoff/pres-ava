@@ -4,8 +4,7 @@ Lightning talk on avajs
 Covered topics:
 * what is avajs
 * features
-* current issues
-* demo timedf
+* things that might bother you
 
 ## How To
 This repository is a presentation using [reveal-md](https://github.com/webpro/reveal-md).

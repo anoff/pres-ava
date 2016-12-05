@@ -20,7 +20,7 @@ github.com/anoff
 ---
 
 
-# (my) favorite features
+# selected features
 
 
 ---
@@ -48,13 +48,40 @@ Note:
 * default is stage-2 (whatever that is 💁)
 
 
+----
+
+
+```javascript
+import test from 'ava';
+import unit from './myUnit.js';
+
+test('.add() should add numbers', t => {
+  return t.true(unit.add(2+3), 5);
+});
+```
+
+
 ---
 
 
 ## 💃💃 async/await
 > callback < promises < await
 
-Note:
+* super readable test cases
+
+
+----
+
+
+```javascript
+// async arrow function
+test(async t => {
+    let value = await promiseFn();
+    value = await nextPromiseFn(value);
+    value = await finalFn(value);
+    t.true(value);
+});
+```
 
 
 ---
@@ -106,32 +133,93 @@ npm run test:watch
 
 
 ## (unlimited) parallelization
+🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
 * one process per test file
 * 💣💥 for large projects
 * use `concurrency=N` to limit (EXPERIMENTAL)
 
 
---- 
+---
 
 
-## highly opinitionated
-* AVA strives to be simple
+## minimalistic API
+* AVA strives to be as simple as possible
+* no huge assertion libraries (only [powerassert](https://github.com/power-assert-js/power-assert))
 
 
 ----
 
 
-## no test grouping
-* write small test files
-  * multiple testfiles per source
+```javascript
+const f = () => 'test';
+const throwing = () => { throw new Error('noooo'); };
+
+test('f should not throw', t => {
+  t.notThrows(f);
+});
+
+test(t => {
+  t.truthy(f(), 'f() should return truthy value');
+});
+
+test(t => {
+  t.throws(throwing);
+});
+```
 
 
-## 😢😢 no browser testing
+----
 
-## simple assertions
+
+```javascript
+test('unit.add() should multiply numbers', t => {
+  return t.true(unit.add(2, 3) === 6);
+});
+```
+
+<img src="./assets/assert-fail.png" />
 
 
 ---
 
 
-# examples
+## 🚫👯 no test grouping
+* write small test files
+  * multiple testfiles per source
+  * refactor code to keep interfaces and tests small
+* ["Nested Unit Tests: An Anti-Pattern"?](https://www.briefs.fm/3-minutes-with-kent/27) by Kent C. Dodds
+
+
+----
+
+
+<img src="./assets/node-core-tests.png" />
+
+Note:
+* example out of node core
+* each test case has its own file
+
+
+---
+
+
+## 😢😢 no browser testing
+* can be done using the [browser-env package](https://github.com/avajs/ava/blob/master/docs/recipes/browser-testing.md)
+* or try [jest](https://facebook.github.io/jest/)
+
+
+---
+
+
+## 🚫📦 v0.17.0
+* no stable API
+* who knows what sindresorhus is up to next month..
+
+
+---
+
+* ava is perfect for small projects
+* for larger projects invest to analyze your needs
+* assertion APIs might help you in larger teams
+
+> give it a try

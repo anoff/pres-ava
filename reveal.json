@@ -3,6 +3,5 @@
     "progress": true,
     "overview": true,
     "transition": "slide",
-    "theme": "./solarized-fa.css",
-    "highlightTheme": "github"
+    "theme": "./solarized-fa.css"
 }
